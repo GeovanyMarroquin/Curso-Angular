@@ -22,4 +22,9 @@ export class MainPageComponent {
       power: 7500,
     }
   ];
+
+  public onNewCharacter(character: Character): void{
+    console.log("desde main page");
+    console.log({character});
+  }
 }
