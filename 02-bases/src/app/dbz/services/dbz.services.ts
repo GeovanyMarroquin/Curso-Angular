@@ -26,13 +26,29 @@ export class DbzService {
     }
   ];
 
-  public addCharacter(character: Character): void {
-    const newCharacter = {...character, id: uuid()}
+  public addCharacter(character: Character): Character {
+    if (character.id.length > 0) {
+      const find = this.findCharacterById(character.id);
+      find.name = character.name;
+      find.power = character.power;
+      return find;
+    }
+    const newCharacter = { ...character, id: uuid() }
     this.characters.push(newCharacter);
+
+    return newCharacter;
   }
 
   public deleteCharacterById(id: string): void {
     this.characters = this.characters.filter(el => el.id !== id);
   }
+
+  public findCharacterById(id: string): Character {
+    return this.characters.find(el => el.id === id)!;
+  }
+
+  // public editCharacter(character: Character): void {
+  //   this.characters = this.characters.filter(el => el.id !== id);
+  // }
 
 }

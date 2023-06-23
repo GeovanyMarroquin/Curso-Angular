@@ -10,10 +10,18 @@ export class ListComponent {
 
   @Output()
   public onDeleteCharacter: EventEmitter<string> = new EventEmitter();
+
+  @Output()
+  public onEditCharacter: EventEmitter<Character> = new EventEmitter();
+
   @Input()
   public characterList: Character[] = [];
 
   emitDeleteCharacter(id: string) {
     this.onDeleteCharacter.emit(id);
+  }
+
+  emitEditCharacter(character: Character){
+    this.onEditCharacter.emit(character);
   }
 }

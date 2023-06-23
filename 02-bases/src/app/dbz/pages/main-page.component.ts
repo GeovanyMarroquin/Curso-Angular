@@ -9,6 +9,7 @@ import { Character } from '../interfaces/character.interface';
 
 export class MainPageComponent {
 
+  public characterToEdit: Character = { id: "", name: "", power: 0 }
   constructor(
     private dbzService: DbzService
   ) { }
@@ -23,5 +24,9 @@ export class MainPageComponent {
 
   onNewCharacter(character: Character): void {
     this.dbzService.addCharacter(character);
+  }
+
+  onEditCharacter(character: Character): void {
+    this.characterToEdit = { ...character };
   }
 }
