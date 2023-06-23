@@ -10,6 +10,10 @@
   </div>
 
   <div class="col">
-    <dbz-add-character (onNewCharacter)="onNewCharacter($event)" [character]="characterToEdit"></dbz-add-character>
+    <dbz-add-character (onNewCharacter)="onNewCharacter($event)" *ngIf="!isEdit; else componentToEdit"></dbz-add-character>
+
+    <ng-template #componentToEdit>
+      <dbz-edit-character [character]="characterEdit" (emitUpdateCharacter)="onEmitUpdateCharacter($event)"></dbz-edit-character>
+    </ng-template>
   </div>
 </div>

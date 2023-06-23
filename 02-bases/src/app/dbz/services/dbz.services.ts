@@ -8,6 +8,7 @@ import { Character } from '../interfaces/character.interface';
 })
 export class DbzService {
 
+  public isEdit: boolean = false;
   public characters: Character[] = [
     {
       id: uuid(),
@@ -27,12 +28,6 @@ export class DbzService {
   ];
 
   public addCharacter(character: Character): Character {
-    if (character.id.length > 0) {
-      const find = this.findCharacterById(character.id);
-      find.name = character.name;
-      find.power = character.power;
-      return find;
-    }
     const newCharacter = { ...character, id: uuid() }
     this.characters.push(newCharacter);
 
@@ -47,8 +42,12 @@ export class DbzService {
     return this.characters.find(el => el.id === id)!;
   }
 
-  // public editCharacter(character: Character): void {
-  //   this.characters = this.characters.filter(el => el.id !== id);
-  // }
+  public updateCharacter(character: Character): Character {
+    const find = this.findCharacterById(character.id);
+    find.name = character.name;
+    find.power = character.power;
 
+    this.isEdit = false;
+    return find;
+  }
 }
