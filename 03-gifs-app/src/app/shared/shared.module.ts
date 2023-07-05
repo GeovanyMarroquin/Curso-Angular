@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {CommonModule, NgOptimizedImage} from '@angular/common';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { LazyImageComponent } from './components/lazy-image/lazy-image.component';
 
@@ -10,9 +10,10 @@ import { LazyImageComponent } from './components/lazy-image/lazy-image.component
     SidebarComponent,
     LazyImageComponent
   ],
-  imports: [
-    CommonModule
-  ],
+    imports: [
+        CommonModule,
+        NgOptimizedImage
+    ],
   exports: [
     SidebarComponent,
     LazyImageComponent
