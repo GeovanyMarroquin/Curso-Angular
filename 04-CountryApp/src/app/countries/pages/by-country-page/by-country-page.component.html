@@ -5,17 +5,18 @@
 <div class="row">
   <div class="col">
     <!-- Search box -->
-    <shared-search-box
-      placeholder="Buscar por pais"
-      (onValue)="searchByCountry($event)"
-    ></shared-search-box>
+    <shared-search-box placeholder="Buscar por pais" (onValue)="searchByCountry($event)"></shared-search-box>
   </div>
 </div>
 
 <div class="row">
   <div class="col">
     <hr />
+    <shared-loading-spinner txtFromSpinner="Buscando pais" *ngIf="isLoading; else table;">
+    </shared-loading-spinner>
 
-    <countries-table [countries]="countries"></countries-table>
+    <ng-template #table>
+      <countries-table [countries]="countries"></countries-table>
+    </ng-template>
   </div>
 </div>

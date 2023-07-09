@@ -15,7 +15,10 @@
 <div class="row">
   <div class="col">
     <hr />
+    <shared-loading-spinner txtFromSpinner="Buscando región" *ngIf="isLoading; else table"></shared-loading-spinner>
 
-    <countries-table [countries]="countries"></countries-table>
+    <ng-template #table>
+      <countries-table [countries]="countries"></countries-table>
+    </ng-template>
   </div>
 </div>
