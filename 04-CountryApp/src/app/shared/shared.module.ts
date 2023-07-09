@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 
 import { AboutPageComponent } from './pages/home-page/about-page/about-page.component';
-import { ContactPageComponent } from './components/contact-page/contact-page.component';
+import { ContactPageComponent } from './pages/contact-page/contact-page.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
 import { RouterModule } from '@angular/router';
