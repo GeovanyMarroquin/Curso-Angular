@@ -4,9 +4,6 @@ import { Country } from '../interfaces/country.interface';
 import { Observable, catchError, delay, map, of, tap } from 'rxjs';
 
 
-// const continents: string[] = [
-//   "ASIA", "AFRICA", "AMERICA", "OCEANIA", "EUROPE",
-// ];
 
 @Injectable({ providedIn: 'root' })
 export class CountriesService {
