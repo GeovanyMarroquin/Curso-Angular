@@ -7,7 +7,7 @@
     <!-- Search box -->
     <shared-search-box
       placeholder="Buscar por región"
-      (onValue)="searchByRegion($event)"
+      (onDebounce)="searchByRegion($event)"
     ></shared-search-box>
   </div>
 </div>
